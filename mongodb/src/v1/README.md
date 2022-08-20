@@ -39,4 +39,7 @@ kubectl exec deployment/mongo-client -it -- /bin/bash
         show dbs
         use local
         show collections
-
+        db.createCollection("bookmarks")
+        db.bookmarks.count()
+        db.getCollectionInfos()
+        db.bookmarks.find();
