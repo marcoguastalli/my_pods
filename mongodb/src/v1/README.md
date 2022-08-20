@@ -32,4 +32,11 @@ minikube service --url mongo-nodeport-svc
 mongo --host <ip> --port <port of nodeport svc> -u adminuser -p password123
 mongo --host 192.168.49.2 --port 32000 -u adminuser -p password123
 
-## play
+kubectl create -f mongodb-client.yaml
+        deployment.apps/mongo-client created
+kubectl exec deployment/mongo-client -it -- /bin/bash
+        mongo --host 192.168.49.2 --port 32000 -u adminuser -p password123
+        show dbs
+        use local
+        show collections
+
