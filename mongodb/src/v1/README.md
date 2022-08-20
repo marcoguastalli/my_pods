@@ -9,6 +9,7 @@ scp -i ~/.ssh/id_rsa_nhe ~/dev/repository/git/my_pods/mongodb/src/v1/mongodb-sec
 scp -i ~/.ssh/id_rsa_nhe mongodb-secrets.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-secrets.yaml
 scp -i ~/.ssh/id_rsa_nhe mongodb-pvc.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-pvc.yaml
 scp -i ~/.ssh/id_rsa_nhe mongodb-deployment.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-deployment.yaml
+scp -i ~/.ssh/id_rsa_nhe mongodb-nodeport-svc.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-nodeport-svc.yaml
 
 ### deploy on remote host
 login as search user
@@ -21,7 +22,13 @@ kubectl create -f mongodb-pvc.yaml
 kubectl apply -f mongodb-deployment.yaml
         deployment.apps/mongo created
 kubectl get deployments
-
-
+kubectl create -f mongodb-nodeport-svc.yaml
+        service/mongo-nodeport-svc created
+kubectl get services
+minikube ip
+minikube service --url mongo-nodeport-svc
+        http://192.168.49.2:32000
+mongo --host <ip> --port <port of nodeport svc> -u adminuser -p password123
+mongo --host 192.168.49.2 --port 32000 -u adminuser -p password123
 
 ## play
