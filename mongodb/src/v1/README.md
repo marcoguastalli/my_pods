@@ -6,11 +6,15 @@ echo -n 'adminuser' | base64
 
 ### deploy to remote host
 scp -i ~/.ssh/id_rsa_nhe ~/dev/repository/git/my_pods/mongodb/src/v1/mongodb-secrets.yaml marco.guastalli@minikube:/home/marco.guastalli/my_pods/mongodb-secrets.yaml
-scp -i ~/.ssh/id_rsa_nhe mongodb-secrets.yaml marco.guastalli@minikube:/opt/my_pods/mongodb/mongodb-secrets.yaml
+scp -i ~/.ssh/id_rsa_nhe mongodb-secrets.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-secrets.yaml
+scp -i ~/.ssh/id_rsa_nhe mongodb-pvc.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-pvc.yaml
 
 ### deploy on remote host
 login as search user
-kubectl apply -f /opt/my_pods/mongodb/mongodb-secrets.yaml
+kubectl apply -f /my_pods/mongodb/mongodb-secrets.yaml
   secret/mongo-creds created
+kubectl get secrets
+kubectl create -f mongodb-pvc.yaml
+kubectl get pvc
 
 ## play
