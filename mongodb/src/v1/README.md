@@ -8,7 +8,7 @@ echo -n 'adminuser' | base64
 scp -i ~/.ssh/id_rsa_nhe ~/dev/repository/git/my_pods/mongodb/src/v1/mongodb-secrets.yaml marco.guastalli@minikube:/home/marco.guastalli/my_pods/mongodb-secrets.yaml
 scp -i ~/.ssh/id_rsa_nhe mongodb-secrets.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-secrets.yaml
 scp -i ~/.ssh/id_rsa_nhe mongodb-pvc.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-pvc.yaml
-scp -i ~/.ssh/id_rsa_nhe mongodb-pvc.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-deployment.yaml
+scp -i ~/.ssh/id_rsa_nhe mongodb-deployment.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-deployment.yaml
 
 ### deploy on remote host
 login as search user
@@ -19,7 +19,7 @@ kubectl create -f mongodb-pvc.yaml
         persistentvolumeclaim/mongo-data unchanged
   kubectl get pvc
 kubectl apply -f mongodb-deployment.yaml
-        persistentvolumeclaim/mongo-data unchanged
+        deployment.apps/mongo created
 kubectl get deployments
 
 
