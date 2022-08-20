@@ -10,6 +10,7 @@ scp -i ~/.ssh/id_rsa_nhe mongodb-secrets.yaml marco.guastalli@minikube:/my_pods/
 scp -i ~/.ssh/id_rsa_nhe mongodb-pvc.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-pvc.yaml
 scp -i ~/.ssh/id_rsa_nhe mongodb-deployment.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-deployment.yaml
 scp -i ~/.ssh/id_rsa_nhe mongodb-nodeport-svc.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-nodeport-svc.yaml
+scp -i ~/.ssh/id_rsa_nhe mongodb-client.yaml marco.guastalli@minikube:/my_pods/mongodb/mongodb-client.yaml
 
 ### deploy on remote host
 login as search user
