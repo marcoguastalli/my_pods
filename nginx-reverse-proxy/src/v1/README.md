@@ -33,7 +33,17 @@ docker run -d --rm \
 nginx
 
 ##### docker ps
-eb2afc266d3c nginx "/docker-entrypoint.…"   5 seconds ago   Up 4 seconds   0.0.0.0:8080->80/tcp, :::8080->80/tcp   nginx
+eb2afc266d3c nginx "/docker-entrypoint.…"   5 seconds ago   Up 4 seconds   0.0.0.0:8080->80/tcp, :::8080->80/tcp   nginx-reverse-proxy
+
+##### access the image as root
+docker run -it nginx /bin/bash
+
+##### access the container as root
+docker container ls
+docker exec -u root -t -i CONTAINER_ID /bin/bash
+tail -f -n 1000 /var/log/nginx/error.log
+tail -f -n 1000 /var/log/nginx/access.log
+
 
 ##### curl -I http://localhost:8080 (from remote host)
 HTTP/1.1 401 Unauthorized
