@@ -52,3 +52,16 @@ Content-Type: text/html
 Content-Length: 179
 Connection: keep-alive
 WWW-Authenticate: Basic realm="Administrator’s Area"
+
+##### create config file in localhost
+vim ~/.kube/config-localhost
+copy the content 
+
+##### kubectl cluster-info
+kubectl --kubeconfig ~/.kube/config-localhost cluster-info
+
+##### kubectl get all
+kubectl --kubeconfig ~/.kube/config-localhost get all
+
+##### kubectl get namespaces
+kubectl --kubeconfig ~/.kube/config-localhost get namespaces
