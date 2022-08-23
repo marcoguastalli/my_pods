@@ -22,6 +22,10 @@ sudo nano /etc/nginx/conf.d/minikube.conf
 ##### create .htpasswd file
 htpasswd -c /etc/nginx/.htpasswd `user`
 
+##### create file default.conf (give necessary permissions to `user`)
+vi /etc/nginx/conf.d/default.conf
+nano /etc/nginx/conf.d/default.conf
+
 ##### run a nginx docker container
 docker run -d --rm \
 --name nginx-reverse-proxy \
@@ -41,8 +45,8 @@ docker run -it nginx /bin/bash
 ##### access the container as root
 docker container ls
 docker exec -u root -t -i CONTAINER_ID /bin/bash
-tail -f -n 1000 /var/log/nginx/error.log
-tail -f -n 1000 /var/log/nginx/access.log
+tail -f -n 1000 /etc/nginx/access.log
+tail -f -n 1000 /etc/nginx/error.log
 
 
 ##### curl -I http://localhost:8080 (from remote host)
