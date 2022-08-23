@@ -35,7 +35,7 @@ nginx
 ##### docker ps
 eb2afc266d3c nginx "/docker-entrypoint.…"   5 seconds ago   Up 4 seconds   0.0.0.0:8080->80/tcp, :::8080->80/tcp   nginx
 
-##### curl -I http://localhost:8080
+##### curl -I http://localhost:8080 (from remote host)
 HTTP/1.1 401 Unauthorized
 Server: nginx/1.23.1
 Date: Tue, 23 Aug 2022 19:16:53 GMT
@@ -44,3 +44,11 @@ Content-Length: 179
 Connection: keep-alive
 WWW-Authenticate: Basic realm="Administrator’s Area"
 
+###### curl -I http://<REMOTE_HOST_IP>:8080 (from localhost)
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.23.1
+Date: Tue, 23 Aug 2022 19:19:55 GMT
+Content-Type: text/html
+Content-Length: 179
+Connection: keep-alive
+WWW-Authenticate: Basic realm="Administrator’s Area"
