@@ -23,8 +23,8 @@ sudo nano /etc/nginx/conf.d/minikube.conf
 htpasswd -c /etc/nginx/.htpasswd `user`
 
 ##### run a nginx docker container
-docker run -d \
---name nginx \
+docker run -d --rm \
+--name nginx-reverse-proxy \
 -p 8080:80 \
 -v /home/search/.minikube/profiles/minikube/client.key:/etc/nginx/certs/minikube-client.key \
 -v /home/search/.minikube/profiles/minikube/client.crt:/etc/nginx/certs/minikube-client.crt \
