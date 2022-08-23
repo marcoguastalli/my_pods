@@ -45,6 +45,7 @@ Connection: keep-alive
 WWW-Authenticate: Basic realm="Administrator’s Area"
 
 ###### curl -I http://<REMOTE_HOST_IP>:8080 (from localhost)
+###### curl -I http://minikube:8080
 HTTP/1.1 401 Unauthorized
 Server: nginx/1.23.1
 Date: Tue, 23 Aug 2022 19:19:55 GMT
